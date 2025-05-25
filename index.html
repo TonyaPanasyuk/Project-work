@@ -3,1184 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2B Marketing International Forum</title>
+    <title>Наша команда - Веб розробка</title>
     <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #333;
-            --text-light: #777;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background-color: #f9f9f9;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
-        
+
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
-        
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .burger {
-            display: none;
-            cursor: pointer;
-        }
-        
-        .burger div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 5px;
-            transition: all 0.3s;
-        }
-        
+
         .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('/api/placeholder/1200/600') center/cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
             text-align: center;
+            padding: 60px 0;
             color: white;
-            padding-top: 80px;
         }
-        
-        .hero-content h1 {
-            font-size: 48px;
+
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
-            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-        
-        .hero-content h2 {
-            font-size: 24px;
+
+        .hero p {
+            font-size: 1.3rem;
             margin-bottom: 30px;
-            font-weight: 400;
+            opacity: 0.9;
         }
-        
-        .hero-date {
-            font-size: 22px;
-            margin-bottom: 40px;
-            font-weight: 700;
+
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
         }
-        
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 700;
-            text-transform: uppercase;
-            transition: background-color 0.3s;
+
+        .team-section {
+            margin: 50px 0;
         }
-        
-        .btn:hover {
-            background-color: #c0392b;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--accent);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--accent);
-        }
-        
-        section {
-            padding: 100px 0;
-        }
-        
-        section h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 60px;
-            color: var(--primary);
-            position: relative;
-        }
-        
-        section h2:after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 4px;
-            background-color: var(--secondary);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .benefits {
+
+        .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .benefit-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .benefit-icon {
-            font-size: 48px;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        .benefit-card h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
-            color: var(--primary);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .about-text {
-            padding-right: 20px;
-        }
-        
-        .about-text h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .program-list {
-            margin-top: 30px;
-        }
-        
-        .program-item {
-            margin-bottom: 40px;
-        }
-        
-        .program-item h3 {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .program-item ul {
-            padding-left: 20px;
-            margin-top: 10px;
-        }
-        
-        .program-item li {
-            margin-bottom: 10px;
-        }
-        
-        .speakers {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .speaker-card {
-            background-color: white;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .speaker-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .speaker-img {
-            width: 100%;
-            height: 250px;
-            background-color: #ddd;
-        }
-        
-        .speaker-info {
-            padding: 20px;
-        }
-        
-        .speaker-info h3 {
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-        
-        .speaker-info p {
-            color: var(--text-light);
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        
-        .sponsors {
-            background-color: var(--light);
-        }
-        
-        .sponsor-packages {
-            margin-top: 40px;
-        }
-        
-        .package-card {
-            background-color: white;
-            border-radius: 5px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .package-card h3 {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 10px;
-        }
-        
-        .package-card ul {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-        
-        .package-card ul li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .package-card ul li:before {
-            content: "✓";
-            color: var(--secondary);
-            margin-right: 10px;
-        }
-        
-        .registration {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        .registration h2 {
-            color: white;
-        }
-        
-        .registration h2:after {
-            background-color: var(--accent);
-        }
-        
-        .price-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .price-card {
-            background-color: white;
-            color: var(--text);
-            border-radius: 5px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .price-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .price-card h3 {
-            font-size: 24px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .price {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        .price-card ul {
-            list-style: none;
-            margin-bottom: 30px;
-            min-height: 200px;
-        }
-        
-        .price-card ul li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .faq {
-            margin-top: 60px;
-        }
-        
-        .faq-item {
-            margin-bottom: 20px;
-            background-color: red;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .faq-question {
-            padding: 20px;
-            background-color: var(--dark);
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .faq-answer {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .faq-answer.active {
-            padding: 20px;
-            max-height: 200px;
-        }
-        
-        .contact {
-            background-color: var(--light);
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 40px;
+            margin: 40px 0;
         }
-        
-        .contact-info h3 {
-            font-size: 22px;
+
+        .team-member {
+            background: linear-gradient(145deg, #f8f9ff, #e8ecff);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .member-header {
+            display: flex;
+            align-items: center;
             margin-bottom: 20px;
-            color: var(--primary);
         }
-        
-        .contact-detail {
-            margin-bottom: 20px;
+
+        .member-emoji {
+            font-size: 3rem;
+            margin-right: 20px;
         }
-        
-        .contact-detail h4 {
+
+        .member-info h3 {
+            color: #4f46e5;
+            font-size: 1.5rem;
             margin-bottom: 5px;
-            color: var(--secondary);
         }
-        
-        .social-links {
-            margin-top: 30px;
+
+        .member-role {
+            color: #6b7280;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
-        
-        .social-links a {
-            display: inline-block;
-            margin-right: 15px;
-            color: var(--primary);
-            font-size: 24px;
-            transition: color 0.3s;
+
+        .member-details {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
         }
-        
-        .social-links a:hover {
-            color: var(--secondary);
+
+        .member-details p {
+            margin: 8px 0;
         }
-        
-        .contact-form form {
+
+        .member-details strong {
+            color: #4f46e5;
+        }
+
+        .member-description {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        .services {
+            background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .services h2 {
+            color: #1e293b;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+
+        .services-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
-        
-        .form-group {
+
+        .service-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .advantage {
+            background: linear-gradient(145deg, #fff7ed, #fed7aa);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .advantage-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .advantage h3 {
+            color: #ea580c;
+            margin-bottom: 10px;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
         }
-        
-        .form-group.full {
-            grid-column: span 2;
+
+        .cta p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-family: inherit;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
+
+        h2 {
+            color: #1e293b;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
             text-align: center;
         }
-        
-        .footer-logo {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo span {
-            color: var(--secondary);
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin: 20px 0;
-        }
-        
-        .footer-links li {
-            margin: 0 15px;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .copyright {
-            margin-top: 30px;
-            font-size: 14px;
-            color: #bbb;
-        }
-        
-        /* Countdown Timer */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-        }
-        
-        .countdown-item {
-            text-align: center;
-            margin: 0 15px;
-        }
-        
-        .countdown-number {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1;
-            color: var(--accent);
-        }
-        
-        .countdown-label {
-            font-size: 14px;
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
-        
-        /* Responsive */
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                position: absolute;
-                right: 0;
-                height: 92vh;
-                top: 80px;
-                background-color: var(--primary);
-                display: flex;
-                flex-direction: column;
-                width: 50%;
-                transform: translateX(100%);
-                transition: transform 0.5s ease-in;
-                z-index: 100;
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
             }
             
-            .nav-links li {
-                opacity: 0;
-                margin: 20px;
+            .content {
+                padding: 20px;
             }
             
-            .burger {
-                display: block;
-            }
-            
-            .nav-active {
-                transform: translateX(0%);
-            }
-            
-            .about-content {
+            .team-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .member-header {
+                flex-direction: column;
                 text-align: center;
             }
             
-            .contact-grid {
-                grid-template-columns: 1fr;
+            .member-emoji {
+                margin-right: 0;
+                margin-bottom: 15px;
             }
-            
-            .contact-form form {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-group.full {
-                grid-column: span 1;
-            }
-            
-            .countdown {
-                flex-wrap: wrap;
-            }
-        }
-        
-        @keyframes navLinkFade {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .toggle .line1 {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-        
-        .toggle .line2 {
-            opacity: 0;
-        }
-        
-        .toggle .line3 {
-            transform: rotate(45deg) translate(-5px, -6px);
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">B2B<span>Forum</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">Головна</a></li>
-                <li><a href="#about">Про форум</a></li>
-                <li><a href="#sponsors">Партнерам</a></li>
-                <li><a href="#registration">Реєстрація</a></li>
-                <li><a href="#contact">Контакти</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-    </header>
+    <div class="container">
+        <section class="hero">
+            <h1>🚀 Наша команда</h1>
+            <p>Молода та амбітна команда розробників, готова втілювати ваші ідеї в життя!</p>
+        </section>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>XVIII Міжнародний науково-практичний форум «B2B Marketing International Forum»</h1>
-                <h2>Трансформація бізнесу в епоху цифрових інновацій та глобальних викликів</h2>
-                <div class="hero-date">22-23 вересня 2025 року, Київ, Україна</div>
-                
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">00</div>
-                        <div class="countdown-label">днів</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">00</div>
-                        <div class="countdown-label">годин</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div class="countdown-label">хвилин</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">00</div>
-                        <div class="countdown-label">секунд</div>
-                    </div>
-                </div>
-                
-                <p>Єдиний в Україні міжнародний форум, що об'єднує провідних експертів, дослідників та практиків B2B-маркетингу в умовах глобальних трансформацій.</p>
-                <div style="margin-top: 40px;">
-                    <a href="#registration" class="btn">Зареєструватися</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container">
-        <h2>Ключові переваги участі</h2>
-        <div class="benefits">
-            <div class="benefit-card">
-                <div class="benefit-icon">🌐</div>
-                <h3>Експертиза світового рівня</h3>
-                <p>Доступ до знань та досвіду 50+ провідних фахівців B2B-маркетингу з 15 країн світу</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">💡</div>
-                <h3>Практичні рішення</h3>
-                <p>Реальні кейси та стратегії, які можна впровадити у свій бізнес вже завтра</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">🤝</div>
-                <h3>Нетворкінг без меж</h3>
-                <p>Можливість встановити партнерські зв'язки з ключовими гравцями B2B-ринку</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">📊</div>
-                <h3>Інсайти майбутнього</h3>
-                <p>Ексклюзивні дослідження трендів та прогнози розвитку B2B-сектору на найближчі 5 років</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="container">
-        <h2>Про форум</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>XVIII Міжнародний науково-практичний форум «B2B Marketing International Forum»</h3>
-                <p>XVIII Міжнародний науково-практичний форум «B2B Marketing International Forum» — це масштабна подія, яка щорічно збирає провідних дослідників, експертів та молодих науковців для обговорення найбільш актуальних тенденцій, викликів і рішень у сфері B2B-маркетингу.</p>
-                <p>Особливої ваги нашому зібранню надає те, що відбувається він в умовах глобальних трансформацій, технологічних проривів та соціально-економічних зрушень, серед яких особливе місце посідає боротьба України за свою свободу, гідність і майбутнє.</p>
-            </div>
-            <div>
-                <img src="image 1.png" alt="Фото з попереднього форуму" style="width: 100%; border-radius: 5px;">
-            </div>
-        </div>
-
-        <div class="program-list">
-            <h2>Програма форуму</h2>
-            <div class="program-item">
-                <h3>Стратегічна трансформація B2B-маркетингу в умовах невизначеності</h3>
-                <ul>
-                    <li>Адаптація бізнес-моделей до викликів воєнного часу</li>
-                    <li>Стратегічне планування в епоху "нової нормальності"</li>
-                    <li>Ризик-менеджмент та прийняття рішень в кризових умовах</li>
-                </ul>
-            </div>
-            <div class="program-item">
-                <h3>Цифрова еволюція B2B-комунікацій</h3>
-                <ul>
-                    <li>Інтеграція AI та машинного навчання в маркетингові процеси</li>
-                    <li>Автоматизація та персоналізація комунікацій</li>
-                    <li>Розвиток омніканальних стратегій взаємодії з клієнтами</li>
-                </ul>
-            </div>
-            <div class="program-item">
-                <h3>Data-Driven підходи в B2B</h3>
-                <ul>
-                    <li>Аналітичні інструменти для підвищення конкурентоспроможності</li>
-                    <li>Предиктивна аналітика в прогнозуванні поведінки B2B-клієнтів</li>
-                    <li>Візуалізація даних для прийняття стратегічних рішень</li>
-                </ul>
-            </div>
-        </div>
-
-        <div>
-            <h2>Спікери та експерти</h2>
-            <div class="speakers">
-                <div class="speaker-card">
-                    <div class="speaker-img">
-                        <img src="image 2.png" alt="Проф. Девід Андерсон" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="speaker-info">
-                        <h3>Проф. Девід Андерсон</h3>
-                        <p>Директор Інституту B2B-маркетингу, Гарвардська бізнес-школа (США)</p>
-                    </div>
-                </div>
-                <div class="speaker-card">
-                    <div class="speaker-img">
-                        <img src="image 3.png" alt="Д-р Марія Ковальчук" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="speaker-info">
-                        <h3>Д-р Марія Ковальчук</h3>
-                        <p>Засновниця Digital B2B Analytics, авторка бестселера "B2B трансформація" (Україна)</p>
-                    </div>
-                </div>
-                <div class="speaker-card">
-                    <div class="speaker-img">
-                        <img src="image 4.png" alt="Міхаель Штаммер" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="speaker-info">
-                        <h3>Міхаель Штаммер</h3>
-                        <p>СЕО компанії IndustryTech, експерт з промислового маркетингу (Німеччина)</p>
-                    </div>
-                </div>
-                <div class="speaker-card">
-                    <div class="speaker-img">
-                        <img src="image 5.png" alt="Сара Джонсон" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="speaker-info">
-                        <h3>Сара Джонсон</h3>
-                        <p>Директорка з маркетингу IBM B2B Solutions (Велика Британія)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="sponsors" class="sponsors">
-        <div class="container">
-            <h2>Для спонсорів і партнерів</h2>
-            <p style="text-align: center; margin-bottom: 40px;">Партнерство з XVIII Міжнародним науково-практичним форумом «B2B Marketing International Forum» — це не лише інвестиція у розвиток професійної спільноти, але й стратегічний маркетинговий хід, який забезпечить вашому бренду унікальні можливості.</p>
-            
-            <div class="sponsor-packages">
-                <div class="package-card">
-                    <h3>Генеральний партнер (Diamond)</h3>
-                    <ul>
-                        <li>Ексклюзивний статус "Генерального партнера" форуму</li>
-                        <li>Виступ представника компанії на пленарній сесії (20 хв)</li>
-                        <li>Брендинг головної сцени форуму</li>
-                        <li>Розміщення логотипу на всіх рекламних матеріалах (преміум позиція)</li>
-                        <li>VIP-зона для проведення зустрічей</li>
-                        <li>10 запрошень для співробітників та клієнтів</li>
-                    </ul>
-                    <a href="#contact" class="btn">Стати партнером</a>
-                </div>
-                <div class="package-card">
-                    <h3>Стратегічний партнер (Platinum)</h3>
-                    <ul>
-                        <li>Виступ представника компанії на галузевій сесії (15 хв)</li>
-                        <li>Брендинг однієї з тематичних зон</li>
-                        <li>Розміщення логотипу на всіх рекламних матеріалах</li>
-                        <li>7 запрошень для співробітників та клієнтів</li>
-                        <li>Доступ до бази контактів учасників відповідного сегменту*</li>
-                    </ul>
-                    <a href="#contact" class="btn">Стати партнером</a>
-                </div>
-                <div class="package-card">
-                    <h3>Партнер секції (Gold)</h3>
-                    <ul>
-                        <li>Модерація галузевої дискусії</li>
-                        <li>Брендинг обраної секції</li>
-                        <li>Розміщення логотипу на всіх рекламних матеріалах</li>
-                        <li>5 запрошень для співробітників та клієнтів</li>
-                    </ul>
-                    <a href="#contact" class="btn">Стати партнером</a>
-                </div>
-            </div>
-            
-            <p style="text-align: center; margin-top: 40px;">
-                <a href="#contact" class="btn btn-outline">Зв'яжіться з нами для обговорення індивідуальних умов партнерства</a>
-            </p>
-        </div>
-    </section>
-
-    <section id="registration" class="registration">
-        <div class="container">
-            <h2>Реєстрація</h2>
-            <p style="text-align: center; margin-bottom: 40px; color: white;">Забезпечте собі місце на головній події року у сфері B2B-маркетингу</p>
-            
-            <div class="price-cards">
-                <div class="price-card">
-                    <h3>VIP-пакет</h3>
-                    <div class="price">15000 грн</div>
-                    <ul>
-                        <li>Доступ до всіх заходів програми форуму</li>
-                        <li>Персональний нетворкінг-план</li>
-                        <li>Обід та кава-брейки преміум-класу</li>
-                        <li>Окрема VIP-зона для проведення зустрічей</li>
-                        <li>Запрошення на ексклюзивну вечірню програму</li>
-                        <li>Повний доступ до відеозаписів усіх сесій</li>
-                    </ul>
-                    <a href="#" class="btn">Зареєструватися</a>
-                </div>
-                <div class="price-card">
-                    <h3>Стандартний пакет</h3>
-                    <div class="price">8000 грн</div>
-                    <ul>
-                        <li>Доступ до всіх заходів програми форуму</li>
-                        <li>Обід та кава-брейки</li>
-                        <li>Доступ до нетворкінг-зони</li>
-                        <li>Доступ до відеозаписів ключових сесій</li>
-                        <li>Друковані матеріали</li>
-                        <li>Стандартний пакет учасника</li>
-                    </ul>
-                    <a href="#" class="btn">Зареєструватися</a>
-                </div>
-                <div class="price-card">
-                    <h3>Онлайн-пакет</h3>
-                    <div class="price">3500 грн</div>
-                    <ul>
-                        <li>Онлайн-трансляція всіх сесій форуму</li>
-                        <li>Можливість задавати питання спікерам онлайн</li>
-                        <li>Доступ до електронних матеріалів</li>
-                        <li>Доступ до відеозаписів ключових сесій</li>
-                        <li>протягом 3 місяців після форуму</li>
-                        <li>&nbsp;</li>
-                    </ul>
-                    <a href="#" class="btn">Зареєструватися</a>
-                </div>
-                <div class="price-card">
-                    <h3>Академічний пакет</h3>
-                    <div class="price">4500 грн</div>
-                    <ul>
-                        <li>Доступ до всіх заходів програми форуму</li>
-                        <li>Обід та кава-брейки</li>
-                        <li>Доступ до нетворкінг-зони</li>
-                        <li>Електронні матеріали презентацій</li>
-                        <li>Стандартний пакет учасника</li>
-                        <li>Для науковців та здобувачів освіти</li>
-                    </ul>
-                    <a href="#" class="btn">Зареєструватися</a>
-                </div>
-            </div>
-            
-            <p style="text-align: center; margin-top: 40px; color: white;">
-                <strong>Зареєструйтесь до 1 серпня та отримайте 20% знижку на будь-який пакет участі</strong>
-            </p>
-            
-            <div class="faq">
-                <h3 style="text-align: center; margin-bottom: 40px; color: white;">Часті запитання</h3>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Коли останній день реєстрації?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Реєстрація триває до 15 вересня 2025 року або до заповнення всіх місць.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Чи можна змінити форму участі після реєстрації?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Так, ви можете змінити форму участі, повідомивши нас не пізніше ніж за 10 днів до початку форуму.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Чи входить проживання у вартість участі?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Ні, проживання не входить у вартість участі. Однак, ми забезпечуємо знижки у партнерських готелях.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Чи надаєте ви корпоративні знижки?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Так, при реєстрації 3+ учасників від однієї компанії діє знижка 15%.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Контакти</h2>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Організаційний комітет</h3>
-                    <div class="contact-detail">
-                        <h4>Адреса</h4>
-                        <p>м. Київ, вул. Хрещатик, 10, офіс 215</p>
-                    </div>
-                    <div class="contact-detail">
-                        <h4>Телефон</h4>
-                        <p>+38 (044) 123-45-67</p>
-                    </div>
-                    <div class="contact-detail">
-                        <h4>Email</h4>
-                        <p>info@b2bmarketingforum.ua</p>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <h4>З питань партнерства та спонсорства</h4>
-                        <p>Марина Петренко<br>
-                        Директорка з розвитку партнерств<br>
-                        partnership@b2bmarketingforum.ua<br>
-                        +38 (095) 765-43-21</p>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <h4>З питань реєстрації та участі</h4>
-                        <p>Олександр Коваленко<br>
-                        Менеджер з роботи з учасниками<br>
-                        registration@b2bmarketingforum.ua<br>
-                        +38 (097) 234-56-78</p>
-                    </div>
-                    
-                    <h3 style="margin-top: 30px;">Соціальні мережі</h3>
-                    <div class="social-links">
-                        <a href="#" title="Facebook">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a href="#" title="LinkedIn">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="#" title="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" title="Telegram">
-                            <i class="fa-brands fa-telegram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Зв'яжіться з нами</h3>
-                    <p>Якщо у вас виникли запитання щодо форуму, будь ласка, заповніть форму нижче, і ми зв'яжемося з вами протягом 24 годин.</p>
-                    
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Ім'я</label>
-                            <input type="text" id="name" name="name" required>
+        <div class="content">
+            <section class="team-section">
+                <h2>👥 Знайомтесь з нашою командою</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-emoji">👩‍💼</div>
+                            <div class="member-info">
+                                <h3>Панасюк Антоніна</h3>
+                                <div class="member-role">Product Manager & Team Lead</div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="member-details">
+                            <p><strong>Вік:</strong> 22 роки</p>
+                            <p><strong>Освіта:</strong> 5 курс ФММ КПІ</p>
+                            <p><strong>Спеціалізація:</strong> Управління продуктом, координація команди, аналіз вимог клієнтів</p>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Телефон</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Компанія</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        <div class="form-group full">
-                            <label for="topic">Тема</label>
-                            <input type="text" id="topic" name="topic" required>
-                        </div>
-                        <div class="form-group full">
-                            <label for="message">Повідомлення</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <div class="form-group full">
-                            <button type="submit" class="btn">Надіслати повідомлення</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <div style="margin-top: 60px;">
-                <h3 style="text-align: center; margin-bottom: 30px;">Місце проведення</h3>
-                <div style="width: 100%; height: 400px; background-color: #ddd; border-radius: 5px;">
-                    <!-- Тут буде вбудована Google Maps -->
-                    <img src="/api/placeholder/1200/400" alt="Карта місця проведення" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;">
-                </div>
-                <p style="text-align: center; margin-top: 15px;">
-                    <strong>Міжнародний виставковий центр</strong><br>
-                    м. Київ, Броварський проспект, 15
-                </p>
-            </div>
-        </div>
-    </section>
+                        <p class="member-description">
+                            Антоніна забезпечує стратегічне планування проектів та ефективну комунікацію з клієнтами. 
+                            Вона відповідає за те, щоб кожен проект відповідав потребам замовника та виконувався в строк.
+                        </p>
+                    </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-logo">B2B<span>Forum</span></div>
-            <p>XVIII Міжнародний науково-практичний форум «B2B Marketing International Forum»</p>
-            
-            <ul class="footer-links">
-                <li><a href="#home">Головна</a></li>
-                <li><a href="#about">Про форум</a></li>
-                <li><a href="#sponsors">Партнерам</a></li>
-                <li><a href="#registration">Реєстрація</a></li>
-                <li><a href="#contact">Контакти</a></li>
-            </ul>
-            
-            <div class="copyright">
-                &copy; 2025 B2B Marketing International Forum. Усі права захищені.
-            </div>
-        </div>
-    </footer>
+                    <div class="team-member">
+                        <div class="member-header">
+                            <div class="member-emoji">👩‍💻</div>
+                            <div class="member-info">
+                                <h3>Олена Мішкур</h3>
+                                <div class="member-role">Lead Developer & Technical Architect</div>
+                            </div>
+                        </div>
+                        <div class="member-details">
+                            <p><strong>Вік:</strong> 22 роки</p>
+                            <p><strong>Освіта:</strong> 5 курс ФММ КПІ</p>
+                            <p><strong>Спеціалізація:</strong> Full-stack розробка, технічна архітектура, оптимізація продуктивності</p>
+                        </div>
+                        <p class="member-description">
+                            Олена — технічний лідер команди, який перетворює ідеї на якісний код. 
+                            Відповідає за технічні рішення, архітектуру проектів та впровадження найкращих практик розробки.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Font Awesome для іконок -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+            <section>
+                <h2>✨ Чому обрати нас?</h2>
+                <div class="advantages">
+                    <div class="advantage">
+                        <div class="advantage-icon">🎓</div>
+                        <h3>Актуальні знання</h3>
+                        <p>Навчаємося на провідному технічному університеті України</p>
+                    </div>
+                    <div class="advantage">
+                        <div class="advantage-icon">💡</div>
+                        <h3>Свіжий погляд</h3>
+                        <p>Приносимо інноваційні ідеї та сучасні підходи</p>
+                    </div>
+                    <div class="advantage">
+                        <div class="advantage-icon">🤝</div>
+                        <h3>Командна робота</h3>
+                        <p>Ефективна співпраця та чітко розподілені ролі</p>
+                    </div>
+                    <div class="advantage">
+                        <div class="advantage-icon">⚡</div>
+                        <h3>Швидкість та якість</h3>
+                        <p>Молодість поєднуємо з професіоналізмом</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="services">
+                <h2>💼 Наші послуги</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">🌐</div>
+                        <h3>Веб-розробка</h3>
+                        <p>Створення сучасних веб-сайтів та додатків</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">📱</div>
+                        <h3>Мобільна розробка</h3>
+                        <p>Розробка додатків для iOS та Android</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🎯</div>
+                        <h3>Консалтинг</h3>
+                        <p>Технічні консультації та аудит проектів</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon">🛠️</div>
+                        <h3>Підтримка</h3>
+                        <p>Супровід та розвиток існуючих рішень</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta">
+                <h2>🚀 Готові розпочати?</h2>
+                <p>Зв'яжіться з нами і давайте разом створимо щось неймовірне!</p>
+            </section>
+        </div>
+    </div>
 
     <script>
-        // Мобільна навігація
-        const navSlide = () => {
-            const burger = document.querySelector('.burger');
-            const nav = document.querySelector('.nav-links');
-            const navLinks = document.querySelectorAll('.nav-links li');
-            
-            burger.addEventListener('click', () => {
-                // Toggle Nav
-                nav.classList.toggle('nav-active');
-                
-                // Animate Links
-                navLinks.forEach((link, index) => {
-                    if (link.style.animation) {
-                        link.style.animation = '';
-                    } else {
-                        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-                    }
-                });
-                
-                // Burger Animation
-                burger.classList.toggle('toggle');
-            });
-        }
-        
-        // FAQ Toggle
-        const faqToggle = () => {
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    const toggle = question.querySelector('.faq-toggle');
-                    
-                    answer.classList.toggle('active');
-                    
-                    if (toggle.textContent === '+') {
-                        toggle.textContent = '-';
-                    } else {
-                        toggle.textContent = '+';
-                    }
-                });
-            });
-        }
-        
-        // Smooth Scroll
-        const smoothScroll = () => {
-            const links = document.querySelectorAll('a[href^="#"]');
-            
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        }
-        
-        // Countdown Timer
-        const countdownTimer = () => {
-            const countdownDate = new Date("September 22, 2025 09:00:00").getTime();
-            
-            const updateTimer = () => {
-                const now = new Date().getTime();
-                const distance = countdownDate - now;
-                
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                document.getElementById("days").textContent = String(days).padStart(2, '0');
-                document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-                document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-                document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-                
-                if (distance < 0) {
-                    clearInterval(timer);
-                    document.getElementById("days").textContent = "00";
-                    document.getElementById("hours").textContent = "00";
-                    document.getElementById("minutes").textContent = "00";
-                    document.getElementById("seconds").textContent = "00";
+        // Додаємо анімацію появи елементів при скролі
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
-            }
-            
-            // Update the countdown every 1 second
-            updateTimer();
-            const timer = setInterval(updateTimer, 1000);
-        }
-        
-        // Initialize
-        const init = () => {
-            navSlide();
-            faqToggle();
-            smoothScroll();
-            countdownTimer();
-        }
-        
-        window.addEventListener('DOMContentLoaded', init);
+            });
+        }, observerOptions);
+
+        // Спочатку приховуємо елементи
+        document.querySelectorAll('.team-member, .advantage, .service-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Додаємо плавну анімацію для hover ефектів
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.team-member, .advantage, .service-item').forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }, 300);
+        });
     </script>
 </body>
 </html>
